@@ -43,9 +43,18 @@ print(elements_median)
 print('-------')
 
 # [Junior+] Задача 5. Полосатые слова
-print('Задача 3:')
-text = "Hello world"
-#Гласные -- A E I O U Y
-#Согласные -- B C D F G H J K L M N P Q R S T V W X Z
-
+print('Задача 5:')
+text = input('Введите текст: ')
+vowels = set('A E I O U Y'.replace(' ', ''))
+consonants = set('B C D F G H J K L M N P Q R S T V W X Z'.replace(' ', ''))
+result = 0
+words_text = re.split(r'[.,!?:; ]+', text.upper())
+print(words_text)
+for word in words_text:
+    if len(word) > 1 and word.isalpha():
+        if set(word[::2]).issubset(vowels) and set(word[1::2]).issubset(consonants):
+            result += 1
+        elif set(word[::2]).issubset(consonants) and set(word[1::2]).issubset(vowels):
+            result += 1
+print(f'"Полосатых" слов: {result}')
 print('-------')
