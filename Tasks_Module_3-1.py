@@ -1,7 +1,6 @@
-# Задача 1. Последний с четными
-import statistics
-from statistics import median
+import re
 
+# Задача 1. Последний с четными
 print('Задача 1:')
 elements = [1, 3, 5]
 if elements:
