@@ -1,7 +1,6 @@
 # Задача 1. Анализ текста. Популярность.
 print('Задача 1:')
-#text = input('Введите текст: ')
-text = "hello, word of word..."
+text = input('Введите текст: ')
 chars_popularity = {}
 words_popularity = {}
 for i in text:
@@ -25,8 +24,20 @@ print('-------')
 
 # Задача 2. Римские цифры
 print('Задача 2:')
-
-
+number = int(input('Введите число от 1 до 3999: '))
+number_new = number
+roman_numerals = {'M': 1000, 'CM': 900, 'D': 500, 'CD': 400,
+                  'C': 100, 'XC': 90, 'L': 50, 'XL': 40, 'X': 10,
+                  'IX': 9, 'V': 5, 'IV': 4, 'I': 1}
+roman_number = ''
+if 1 <= number <= 3999:
+    for key, value in roman_numerals.items():
+        while number_new >= value:
+            roman_number += key
+            number_new -= value
+    print(f'Число {number} по римски будет: {roman_number}')
+else:
+    print('Введенное число не попадает в диапазон от 1 до 3999')
 print('-------')
 
 # Задача 3. Ленивый спекулянт
@@ -56,6 +67,25 @@ print('-------')
 
 # [Junior+] Задача 6. Судья игры "Крестики-нолики"
 print('Задача 6:')
-
-
+data = [
+    "OOX",
+    "XXO",
+    "OXX"
+ ]
+winning_combination_x = 'XXX'
+winning_combination_O = 'OOO'
+result_game = ''
+data_diagonal = [data[0][0] + data[1][1] + data[2][2], data[0][2] + data[1][1] + data[2][0]]
+data_vertical = []
+for i in range(len(data)):
+    data_vertical.append(data[0][i] + data[1][i] + data[2][i])
+if (winning_combination_O in data or winning_combination_O in data_vertical or
+    winning_combination_O in data_diagonal):
+    result_game = 'O'
+elif (winning_combination_x in data or winning_combination_x in data_vertical or
+    winning_combination_x in data_diagonal):
+    result_game = 'X'
+else:
+    result_game = 'D'
+print(f'{data} -> {result_game}')
 print('-------')

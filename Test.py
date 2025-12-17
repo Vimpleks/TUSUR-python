@@ -1,5 +1,2 @@
-dict = {'name': 'Evgenya', 'age': 25}
-list_1 = [('name', 'Evgenya'), ('age', 25)]
-list_2 = ['Evgenya', 25]
-dict_1 = dict(list_1)
-print(dict_1)
+list = [1, 2, 3, 1, 3]
+print([n for n in list if list.count(n) > 1])
