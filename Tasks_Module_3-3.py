@@ -14,7 +14,9 @@ x = 1
 y = 2
 z = 4
 n = 2
-
+list = [x, y, z]
+result = [[x, y, z] for x in list for y in list for z in list if x + y - z > n]
+print(result)
 print('-------')
 
 # Задача 3. Удвоенные нечетные.
