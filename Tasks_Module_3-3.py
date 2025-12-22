@@ -14,19 +14,35 @@ x = 1
 y = 2
 z = 4
 n = 2
-list = [x, y, z]
-result = [[x, y, z] for x in list for y in list for z in list if x + y - z > n]
+elements = [x, y, z]
+result = [[x, y, z] for x in elements for y in elements for z in elements if x + y - z > n]
 print(result)
 print('-------')
 
 # Задача 3. Удвоенные нечетные.
 print('Задача 3:')
-
+# n = int(input())
+n = 5
+numbers = [number * 2 for number in range(n) if number % 2 != 0]
+print(numbers)
 print('-------')
 
 # [Junior] Задача 4. Дешифратор.
 print('Задача 4:')
-
+key = ('....',
+   'X..X',
+   '.X..',
+   '...X')
+value = ('xhwc',
+   'rsqx',
+   'xqzz',
+   'fyzr')
+password = ''
+key_turn = list(key)
+for i in range(4):
+    password += ''.join(v for k, v in zip(''.join(key_turn), ''.join(value)) if k == 'X')
+    key_turn = [''.join(i) for i in zip(*key_turn[::-1])]
+print(f'Пароль: {password}')
 print('-------')
 
 # [Junior+] Задача 5. Возраст привидений
