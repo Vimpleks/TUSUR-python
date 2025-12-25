@@ -19,8 +19,9 @@ import os, glob
 folder_path = r"D:\Logs_all"
 #folder_path = input('Введите путь к папке для поиска: ')
 match_file = 'AccountPrune*.log'
+#match_file = 'MDaemon-*-POP3.log'
 str_find = 'was removed - (241 days since last access)'
-#str_find = 'bakulina@gmail.com'
+#str_find = 'USER smelchakov_av'
 #str_find = input('Введите строку для поиска: ')
 for filename in glob.glob(os.path.join(folder_path, match_file)):
     #print(filename)
