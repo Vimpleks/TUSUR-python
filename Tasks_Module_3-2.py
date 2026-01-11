@@ -1,8 +1,11 @@
 # Задача 1. Анализ текста. Популярность.
+from collections import Counter
 print('Задача 1:')
 text = input('Введите текст: ')
+# text = "Hello word hello"
 chars_popularity = {}
 words_popularity = {}
+# chars_popularity = Counter(text.lower()) - можно подсчитать через счетчик из коллекций
 for i in text:
     if i.isalpha():
         if i in chars_popularity:
@@ -10,6 +13,7 @@ for i in text:
         else:
             chars_popularity[i] = 1
 words_text = text.split()
+# words_popularity = Counter(words_text)
 for word in words_text:
     word = word.strip('.,!?;:')
     if word.isalpha():
