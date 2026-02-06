@@ -11,16 +11,28 @@ print('-------')
 
 # Задача 2. Палиндром.
 print('Задача 2:')
-def word_is_palindrome(word: str) -> bool:
-    if word == word[::-1]:
-        return True
-    else:
-        return False
+# Версия 1
+# def word_is_palindrome(word: str) -> bool:
+#     if word == word[::-1]:
+#         return True
+#     else:
+#         return False
+# word = input('Введите слово, состоящее только из строчных латинских букв: ')
+# if word.isalpha() and word.islower():
+#     print(word_is_palindrome(word))
+# else:
+#     print('Введенное слово не соответсвует заданным условиям')
+
+# Версия 2. После разбора на лекции
+def check_palindrome(word: str) -> bool:
+    return word == word[::-1]
 word = input('Введите слово, состоящее только из строчных латинских букв: ')
-if word.isalpha() and word.islower():
-    print(word_is_palindrome(word))
+if not word.isalpha():
+    print('Слово должно состоять только из латинских букв')
+elif not word.islower():
+    print('Слово должно состоять только из строчных букв')
 else:
-    print('Введенное слово не соответсвует заданным условиям')
+    print(check_palindrome(word))
 print('-------')
 
 # Задача 3. Деканат.

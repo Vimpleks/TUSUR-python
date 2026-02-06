@@ -47,10 +47,14 @@ print('-------')
 # Задача 3. Ленивый спекулянт
 print('Задача 3:')
 rates = {'Sberbank': 55.8, 'VTB24': 53.91}
+# Вариант 1
 rates_keys = list(rates.keys())
 rates_values = list(rates.values())
 rates_min_value_index = rates_values.index(min(rates_values))
 print(f'{rates_keys[rates_min_value_index]} -> {rates_values[rates_min_value_index]}')
+# Вариант 2
+rates_min = min(rates, key=rates.get)
+print(f'{rates_min} -> {rates[rates_min]}')
 print('-------')
 
 # Задача 4. Вверх дном

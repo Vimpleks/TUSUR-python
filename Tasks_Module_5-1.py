@@ -32,7 +32,8 @@ print('-------')
 print('Задача 4:')
 x = [2, 3, 4]
 y = [10, 11, 12]
-exponentiation = list(map(lambda a, b: a ** b, x, y))
+#exponentiation = list(map(lambda a, b: a ** b, x, y))
+exponentiation = list(map(pow, x, y))
 print(exponentiation)
 print('-------')
 
