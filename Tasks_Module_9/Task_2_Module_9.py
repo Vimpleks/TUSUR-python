@@ -1,20 +1,4 @@
-# Задача 1.
-# Описание работы:
-# 1. Программа запрашивает у пользователя текст.
-# 2. Каждая новая фраза должна записываться в файл notes.txt с новой строки, не удаляя старые данные.
-# 3. Перед каждой фразой автоматически добавляется текущая дата и время (модуль datetime).
-# 4. Цикл завершается, когда пользователь вводит слово "стоп".
-# from datetime import datetime
-# datetime_note = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-# with open('notes.txt', mode= 'a') as notes_text:
-#     while True:
-#         text = input('Введите вашу заметку: ')
-#         if text.lower() == 'стоп':
-#             break
-#         notes_text.write(f'{datetime_note}\n')
-#         notes_text.write(f'{text}\n')
-
-# Задача 2
+# Задание 2
 # Сценарий работы:
 # 1. Пользователь вводит название файла (обязательно с расширением .csv и разделителем ';').
 # 2. Программа выводит названия столбцов, которые были найдены в файле.
@@ -24,8 +8,8 @@
 # 6. Программа записывает новый файл (в формате .csv) со строками, где выбранный столбец содержит указанное пользователем значение.
 
 import csv
-# user_file = input("Укажите название файла с расширением .csv: ")
-user_file = 'users.csv'
+user_file = input("Укажите название файла с расширением .csv: ")
+# user_file = 'users.csv'
 with open(user_file, encoding="utf-8") as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=';')
     names_column = {}
@@ -51,8 +35,8 @@ with open(user_file, encoding="utf-8") as csv_file:
     for row in csv_reader:
         if row[names_column[user_column]] == unique_column_values_dict[value_filter]:
             rows_filter.append(row)
-filter_file = f"users-{names_column[user_column]}-{unique_column_values_dict[value_filter]}.csv"
-with open(filter_file, "a", encoding="utf-8") as csv_file:
-    csv_writer = csv.DictWriter(csv_file, delimiter=';', fieldnames=('Никнейм','Имя','Фамилия','Город','Рейтинг'))
+filter_file = f"{user_file.rstrip('.csv')}-{names_column[user_column]}-{unique_column_values_dict[value_filter]}.csv"
+with open(filter_file, "w", encoding="utf-8", newline='') as csv_file:
+    csv_writer = csv.DictWriter(csv_file, delimiter=';', fieldnames=(list(names_column.values())))
     csv_writer.writeheader()
     csv_writer.writerows(rows_filter)
