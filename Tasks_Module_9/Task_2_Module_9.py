@@ -9,7 +9,6 @@
 
 import csv
 user_file = input("Укажите название файла с расширением .csv: ")
-# user_file = 'users.csv'
 with open(user_file, encoding="utf-8") as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=';')
     names_column = {}
