@@ -1,4 +1,7 @@
 # Задача 1. Не уникальные элементы.
+import itertools
+from itertools import permutations
+
 print('Задача 1:')
 array_numbers = [10, 9, 10, 10, 9, 8]
 if array_numbers:
@@ -16,7 +19,9 @@ z = 4
 n = 2
 elements = [x, y, z]
 result = [[x, y, z] for x in elements for y in elements for z in elements if x + y - z > n]
+permutations_elements = itertools.permutations(elements)
 print(result)
+print(permutations_elements)
 print('-------')
 
 # Задача 3. Удвоенные нечетные.

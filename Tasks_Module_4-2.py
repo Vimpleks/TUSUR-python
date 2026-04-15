@@ -39,8 +39,7 @@ print('Задача 3:')
 
 def responses_creator(item_ids):
     item_ids = [None] if item_ids is None else item_ids
-    responses = [dict(item_id=item_id) for item_id in item_ids]
-    return responses
+    return [dict(item_id=item_id) for item_id in item_ids]
 
 print(responses_creator([1, 2, 3]))
 print('-------')

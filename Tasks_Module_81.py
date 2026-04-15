@@ -2,10 +2,10 @@
 
 class Friends:
     def __init__(self, connections: list[set[str]]):
-        self.connections = list()
+        self.connections = set()
         for connection in connections:
             if len(connection) == 2:
-                self.connections.append(set(connection))
+                self.connections.add(frozenset(connection))
             else:
                 print('Связь должна быть только из двух имен')
 
@@ -15,7 +15,7 @@ class Friends:
         """
         if connection in self.connections:
             return False
-        self.connections.append(connection)
+        self.connections.add(frozenset(connection))
         return True
 
     def remove(self, connection: set[str]):
@@ -128,7 +128,10 @@ class GroupStudy:
         """
         grade_subject_group = list()
         for student in self.students:
-            grade_subject_group.append(student.grade_subject[subject])
+            if subject in student.grade_subject.keys():
+                grade_subject_group.append(student.grade_subject[subject])
+        if len(grade_subject_group) == 0:
+            return 0
         return round(sum(grade_subject_group) / len(grade_subject_group), 1) if self.students else 0
 
     def __str__(self):
