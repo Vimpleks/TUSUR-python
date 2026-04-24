@@ -5,9 +5,9 @@
 # 3. Перед каждой фразой автоматически добавляется текущая дата и время (модуль datetime).
 # 4. Цикл завершается, когда пользователь вводит слово "стоп".
 from datetime import datetime
-datetime_note = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 with open('notes.txt', mode= 'a') as notes_text:
     while True:
+        datetime_note = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         text = input('Введите вашу заметку: ')
         if text.lower() == 'стоп':
             break
